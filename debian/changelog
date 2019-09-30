@@ -1,0 +1,23 @@
+meta-maker (0.3.1) xenial; urgency=high
+
+  * Fix bug 
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 26 Apr 2016 17:49:23 +0200
+
+meta-maker (0.3) xenial; urgency=high
+
+  * Add scripts to check package sizes
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 26 Apr 2016 12:36:28 +0200
+
+meta-maker (0.2) xenial; urgency=high
+
+  * Migrate from trusty
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 22 Mar 2016 17:20:46 +0100
+
+meta-maker (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 30 Nov 2015 09:17:43 +0100

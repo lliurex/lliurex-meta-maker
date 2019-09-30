@@ -1,0 +1,14 @@
+Source: meta-maker
+Section: admin
+Priority: optional
+Maintainer: Raul Rodrigo Segura <raurodse@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), dh-python, python3-all, python3-bs4
+Standards-Version: 3.9.4
+Homepage: https://svn.lliurex.net/trusty/lliurex-meta-maker
+#Vcs-Git: git://git.debian.org/collab-maint/lliurex-meta-maker.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/lliurex-meta-maker.git;a=summary
+
+Package: meta-maker
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, python3-bs4, lliurex-resolver
+Description: Tool to create and administrate seeds
