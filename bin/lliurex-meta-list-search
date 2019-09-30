@@ -1,0 +1,24 @@
+#!/bin/bash
+ALLPACKAGESFILE=$(tempfile)
+ONLYPACKAGESNAMEFILE=$(tempfile)
+PACKAGESTOSEARCHFILE=$(tempfile)
+PACKAGESSIZEFILE=$(tempfile)
+usage(){
+	echo -e "\nUsage:"
+	echo -e "\t$0"
+	echo -e ""
+	exit 0
+}
+if [ $# -ne 2 ]; then
+	usage
+fi
+lliurex-resolver -i $1 -o $ALLPACKAGESFILE 1>/dev/null
+cat $ALLPACKAGESFILE | cut -f 1 | sort -u > $ONLYPACKAGESNAMEFILE
+comm -1 $2 $ONLYPACKAGESNAMEFILE | sed -e '/^[ \t]\+/d' > $PACKAGESTOSEARCHFILE
+while read line; do
+	LANG=C apt-cache show $line | grep "Installed-Size:" >> $PACKAGESSIZEFILE
+done < $PACKAGESTOSEARCHFILE
+:> /tmp/.asumar
+cat $PACKAGESSIZEFILE | awk '{ print $2 }' > /tmp/.asumar
+python -c "f=open('/tmp/.asumar');a = sum(float(l) for l in f.readlines()); print(str(a/1024) + ' M')"
+rm $ALLPACKAGESFILE $ONLYPACKAGESNAMEFILE $PACKAGESTOSEARCHFILE $PACKAGESSIZEFILE /tmp/.asumar

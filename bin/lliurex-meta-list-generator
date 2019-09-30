@@ -1,0 +1,21 @@
+#!/bin/bash
+usage(){
+	echo -e "\nUsage:"
+	echo -e "\t$0 file [files ...]"
+	echo -e "\t*** Note:files on seed format (wiki) ***\n"
+	exit 0
+}
+if [ $# -le 0 ]; then
+	usage
+fi
+ALLPACKAGESFILE=$(tempfile)
+DEPENDSFILE=$(tempfile)
+RESULT=$(tempfile)
+for file in $@; do
+	cat $file | grep "^ \*" | awk '{ print $2}' | tr -d '(' | tr -d ')' >> $ALLPACKAGESFILE
+done
+ALLPACKAGES=$(cat $ALLPACKAGESFILE | sort -u | tr '\n' ' ')
+lliurex-resolver -i $ALLPACKAGES -o $DEPENDSFILE -d 1>/dev/null
+cat $DEPENDSFILE | cut -f 1 | sort -u > $RESULT
+echo "$RESULT"
+rm $ALLPACKAGESFILE $DEPENDSFILE

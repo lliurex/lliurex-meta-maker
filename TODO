@@ -1,0 +1,15 @@
+Lliurex-meta-pkg 
+	update : 
+		comprueba build-depends
+		comprueba si hay nuevas semillas -> Genera las entradas en el control
+		comprueba si hay nuevos paquetes virtuales -> Genera las entradas en el control
+		crea los ficheros update.cfg y transgenic.conf en el directorio raiz
+		germina las semillas de lliurex
+		actualiza los controls con las nuevas dependencias
+
+
+lliurex-meta-maker
+	* administrar semillas a generar ()
+	* crear semillas desde 0
+	* Editar semillas
+	* Busquedas en las semillas

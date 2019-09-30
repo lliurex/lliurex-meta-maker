@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+import metamaker
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) > 1:
+        metamaker.MetaMaker().onecmd(' '.join(sys.argv[1:]))
+    else:
+    	metamaker.MetaMaker().cmdloop()
