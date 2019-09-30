@@ -1,3 +1,9 @@
+meta-maker (0.3.3) bionic; urgency=medium
+
+  * Bionic release
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 30 Sep 2019 13:08:09 +0200
+
 meta-maker (0.3.1) xenial; urgency=high
 
   * Fix bug 
